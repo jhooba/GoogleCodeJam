@@ -20,8 +20,8 @@ public class StoreCredit {
     BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(input)));
     File output = new File(input.getParentFile(), input.getName() + ".out");
     PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(output)));
-    int numberOfCases = Integer.parseInt(reader.readLine());
-    for (int c = 0; c < numberOfCases; ++c) {
+    byte numberOfCases = Byte.parseByte(reader.readLine());
+    for (byte c = 0; c < numberOfCases; ++c) {
       short credit = Short.parseShort(reader.readLine());
       int numberOfItems = Integer.parseInt(reader.readLine());
       Item[] items = new Item[numberOfItems];
@@ -37,7 +37,7 @@ public class StoreCredit {
     writer.close();
   }
 
-  private static void useCredit(int c, PrintWriter writer, short credit, Item[] items) {
+  private static void useCredit(byte c, PrintWriter writer, short credit, Item[] items) {
     Arrays.sort(items, (i1, i2) -> i1.price - i2.price);
     int end = items.length;
     int rend = end - 1;
